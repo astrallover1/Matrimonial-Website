@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Match</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Background colors */
+        .bg-fffcf3 {
+            background-color: #fffcf3;
+        }
+        
+        .bg-ffeebf {
+            background-color: #ffeebf;
+        }
+        
+        /* Text colors */
+        .text-yellow-900 {
+            color: #713f12;
+        }
+        
+        /* Text utilities */
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-2xl {
+            font-size: 1.5rem;
+            line-height: 2rem;
+        }
+        
+        .text-md {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
+        
+        .font-semibold {
+            font-weight: 600;
+        }
+        
+        .font-normal {
+            font-weight: 400;
+        }
+        
+        .tracking-wide {
+            letter-spacing: 0.025em;
+        }
+        
+        /* Layout utilities */
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .p-5 {
+            padding: 1.25rem;
+        }
+        
+        .px-20 {
+            padding-left: 5rem;
+            padding-right: 5rem;
+        }
+        
+        .px-10 {
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+        }
+        
+        .px-9 {
+            padding-left: 2.25rem;
+            padding-right: 2.25rem;
+        }
+        
+        .py-3 {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+        
+        .pt-20 {
+            padding-top: 5rem;
+        }
+        
+        .flex {
+            display: flex;
+        }
+        
+        .flex-col {
+            flex-direction: column;
+        }
+        
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+        
+        .justify-center {
+            justify-content: center;
+        }
+        
+        .justify-base {
+            justify-content: space-between;
+        }
+        
+        .items-end {
+            align-items: flex-end;
+        }
+        
+        .gap-3 {
+            gap: 0.75rem;
+        }
+        
+        .gap-5 {
+            gap: 1.25rem;
+        }
+        
+        .rounded-2xl {
+            border-radius: 1rem;
+        }
+        
+        .max-w-7xl {
+            max-width: 80rem;
+        }
+        
+        /* Button styles */
+        .btn-primary2 {
+            background-color: #c48c46;
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary2:hover {
+            background-color: #a47538;
+        }
+        
+        .btn-primary3 {
+            background-color: transparent;
+            color: #c48c46;
+            border: 2px solid #c48c46;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary3:hover {
+            background-color: rgba(196, 140, 70, 0.1);
+        }
+        
+        /* Bottom background */
+        .bottom-bg {
+            position: relative;
+            height: 5rem;
+            width: 100%;
+            overflow: hidden;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23fffcf3" fill-opacity="1" d="M0,128L48,112C96,96,192,64,288,64C384,64,480,96,576,128C672,160,768,192,864,176C960,160,1056,96,1152,74.7C1248,53,1344,75,1392,85.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+        
+        /* Animation */
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        /* Responsive adjustments */
+        @media (min-width: 640px) {
+            .sm\:text-4xl {
+                font-size: 2.25rem;
+                line-height: 2.5rem;
+            }
+        }
+        
+        /* Additional findmatch.css styles */
+        .text-balance {
+            text-wrap: balance;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-fffcf3 text-center p-5">
+        <div class="mx-auto bg-ffeebf flex flex-col gap-5 rounded-2xl flex-wrap max-w-7xl text-center justify-base gap-3 pt-20">
+            <h1 class="text-yellow-900 text-balance text-2xl font-semibold sm:text-4xl">Find your perfect Match now</h1>
+            <p class="text-md tracking-wide px-20 text-yellow-900 font-normal">
+                lacinia viverra lectus. Fusce imperdiet ullamcorper metus eu fringilla.Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br /> 
+            </p>
+            <div class="flex flex-wrap justify-center gap-5 p-5">
+                <button class="btn-primary2 px-10 py-3">
+                    Register Now
+                </button>
+                <button class="btn-primary3 px-9 py-3">
+                    Help & Support
+                </button>
+            </div>
+            <div class="flex object-cover animate-pulse h-20 bottom-bg items-end">
+                <!-- Wave background created with CSS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add any JavaScript functionality here
+        document.addEventListener('DOMContentLoaded', function() {
+            const registerButton = document.querySelector('.btn-primary2');
+            const supportButton = document.querySelector('.btn-primary3');
+            
+            registerButton.addEventListener('click', function() {
+                alert('Registration process initiated!');
+                // You can replace this with actual registration logic
+            });
+            
+            supportButton.addEventListener('click', function() {
+                alert('Help & Support requested!');
+                // You can replace this with actual support logic
+            });
+        });
+    </script>
+</body>
+</html>

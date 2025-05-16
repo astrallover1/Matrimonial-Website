@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Matrimony Login</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <style>
+    .bottom-bg {
+      background: linear-gradient(to bottom, transparent, #ffeeb2);
+    }
+    .animate-pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="bg-white shadow-md py-4">
+    <div class="container mx-auto flex justify-between items-center px-6">
+      <div class="text-2xl font-bold text-amber-800">Matrimony</div>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="#" class="text-gray-700 hover:text-amber-600">Home</a></li>
+          <li><a href="#" class="text-gray-700 hover:text-amber-600">About</a></li>
+          <li><a href="#" class="text-gray-700 hover:text-amber-600">Services</a></li>
+          <li><a href="#" class="text-gray-700 hover:text-amber-600">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="mx-auto grid grid-cols-1 max-w-4xl justify-between gap-4 items-center p-10">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-9 items-center shadow-xl rounded-xl overflow-hidden">
+
+      <!-- Left Section -->
+      <div class="flex flex-col justify-between text-start space-y-8 md:space-y-12 bg-gradient-to-r from-[#f2d184] to-[#ffeeb2] px-6 py-4 min-h-full text-center">
+        <h1 class="text-[#c48c46] text-balance text-xl tracking-wide md:text-lg lg:text-2xl sm:text-lg">Now
+          <span class="block text-[#66451c] text-balance text-3xl font-semibold tracking-wide md:text-4xl lg:text-4xl lg:py-5 sm:text-3xl">Find Your Life Partner</span>
+          <span class="text-[#66451c]">Easy and fast.</span>
+        </h1>
+
+        <div>
+          <img src="./images/askyourdoubts/image.png" alt="Find Your Partner" class="hidden md:block lg:block lg:w-full sm:w-40 rounded-full bg-[#fee68b]">
+          <div class="flex object-cover animate-pulse h-20 bottom-bg items-end"></div>
+        </div>
+      </div>
+
+      <!-- Right Section (Login Form) -->
+      <form id="loginForm" class="md:col-span-2 w-full py-6 px-6 sm:px-16">
+        <div class="text-gray-900 mb-6 font-medium text-3xl">
+          <h2 class="font-light text-[15px]">Start for free</h2>
+          Sign in to Matrimony
+          <h2 class="text-amber-950 text-[15px] font-medium">Not a Member? <a class="text-blue-500" href="signup.html">Sign Up Now</a></h2>
+        </div>
+
+        <div class="space-y-6">
+          <!-- Email Field -->
+          <div>
+            <label class="text-gray-800 text-sm mb-2 block">Email Id:</label>
+            <div class="relative flex items-center">
+              <input
+                name="email"
+                type="email"
+                required
+                class="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-2.5 rounded-md focus:outline-blue-500"
+                placeholder="Enter email"
+              >
+            </div>
+          </div>
+
+          <!-- Password Field -->
+          <div>
+            <label class="text-gray-800 text-sm mb-2 block">Password:</label>
+            <div class="relative flex items-center">
+              <input
+                name="password"
+                type="password"
+                required
+                class="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-2.5 rounded-md focus:outline-blue-500"
+                placeholder="Enter your password"
+              >
+            </div>
+            <div class="text-right text-sm mt-1">
+              <a href="#" class="text-blue-500 hover:underline">Forgot password?</a>
+            </div>
+          </div>
+
+          <!-- Remember Me -->
+          <div class="flex items-center">
+            <input
+              id="remember-me"
+              name="remember-me"
+              type="checkbox"
+              class="h-4 w-4 shrink-0 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+            >
+            <label for="remember-me" class="ml-3 block text-sm text-gray-800">
+              Remember Me
+            </label>
+          </div>
+        </div>
+
+        <!-- Sign In Button -->
+        <div class="mt-12">
+          <button
+            type="submit"
+            class="w-full py-3 px-4 tracking-wider text-sm rounded-md text-white bg-gray-700 hover:bg-gray-800 focus:outline-none"
+          >
+            Sign in
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-lg font-semibold mb-4">About Us</h3>
+          <p class="text-sm">We are dedicated to helping you find your perfect life partner through our matrimony service.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="text-sm space-y-2">
+            <li><a href="#" class="hover:text-amber-300">Home</a></li>
+            <li><a href="#" class="hover:text-amber-300">Services</a></li>
+            <li><a href="#" class="hover:text-amber-300">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-amber-300">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact</h3>
+          <p class="text-sm">Email: info@matrimony.com</p>
+          <p class="text-sm">Phone: +1 234 567 8900</p>
+        </div>
+      </div>
+      <div class="mt-8 border-t border-gray-700 pt-6 text-sm text-center">
+        &copy; 2025 Matrimony. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('loginForm');
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const formData = {
+          email: form.elements.email.value,
+          password: form.elements.password.value
+        };
+
+        try {
+          const response = await fetch('http://localhost:5000/api/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+          });
+
+          if (response.ok) {
+            alert('Login successful');
+            window.location.href = '/home.html';
+          } else {
+            const data = await response.json();
+            alert('Login failed: ' + (data.message || 'Unknown error'));
+          }
+        } catch (error) {
+          console.error('Error logging in:', error);
+          alert('Login failed: ' + error.message);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

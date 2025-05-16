@@ -1,0 +1,191 @@
+
+       
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+        }
+        
+        /* Main container styles */
+        .bg-fcfcfc {
+            background-color: #fcfcfc;
+        }
+        
+        .max-w-7xl {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .py-20 {
+            padding-top: 10rem;
+            padding-bottom: 10rem;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Heading styles */
+        .text-c48c46 {
+            color: #c48c46;
+        }
+        
+        .text-66451c {
+            color: #66451c;
+        }
+        
+        .text-xl {
+            font-size: 1.25rem;
+        }
+        
+        .text-4xl {
+            font-size: 2.25rem;
+        }
+        
+        .font-semibold {
+            font-weight: 600;
+        }
+        
+        .tracking-wide {
+            letter-spacing: 0.025em;
+        }
+        
+        .pb-5 {
+            padding-bottom: 1.25rem;
+        }
+        
+        /* Grid container */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            padding: 2.5rem;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1280px;
+        }
+        
+        /* Card styles */
+        .testimonial-card {
+            width: 100%;
+            padding: 1.75rem;
+            border-radius: 0.5rem;
+            background-color: white;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Card header with profile */
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #1e293b;
+        }
+        
+        .profile-img {
+            position: relative;
+            display: inline-block;
+            height: 58px;
+            width: 58px;
+            border-radius: 9999px;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.1);
+        }
+        
+        .profile-info {
+            display: flex;
+            
+            flex-direction: column;
+        }
+        
+        .profile-header {
+            display: flex;
+            flex-wrap: wrap;
+            
+            justify-content: space-between;
+        }
+        
+        .profile-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        /* Star rating */
+        .star-rating {
+            display: flex;
+            
+        }
+        
+        .star {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: #ca8a04;
+        }
+        
+        /* Card content */
+        .card-content {
+            margin-top: 1.5rem;
+        }
+        
+        .review-text {
+            font-size: 1rem;
+            text-align: justify;
+            color: #475569;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+        
+        /* Button styles */
+        .btn-primary {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.75rem 1.5rem;
+            background-color: #c48c46;
+            color: white;
+            border: none;
+            border-radius: 0.25rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #b37c36;
+        }
+        
+        /* Media queries for responsive design */
+        @media (min-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .text-xl {
+                font-size: 1.5rem;
+            }
+            
+            .text-4xl {
+                font-size: 3rem;
+            }
+        }
+    

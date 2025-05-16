@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .bg-custom {
+            background-color: #fefbf2;
+        }
+        
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-item {
+            flex: 0 0 calc(100% / 3);
+            padding: 0.5rem;
+        }
+        
+        .card {
+            position: relative;
+            height: 30vh;
+            overflow: hidden;
+            text-align: center;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-header {
+            position: absolute;
+            inset: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            border-radius: 0;
+        }
+        
+        .card-body {
+            position: relative;
+            padding: 3.5rem 2rem;
+            z-index: 10;
+        }
+        
+        .our-ser-bg {
+            background-image: url('./images/ourservices/bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .our-ser-bg0 {
+            background-image: url('./images/ourservices/pg7.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .our-ser-bg1 {
+            background-image: url('./images/ourservices/bg0.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .our-ser-bg2 {
+            background-image: url('./images/ourservices/bg1.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .our-ser-bg3 {
+            background-image: url('./images/ourservices/bg2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .our-ser-bg4 {
+            background-image: url('./images/ourservices/bg3.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .our-ser-bg5 {
+            background-image: url('./images/ourservices/pg4.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .our-ser-bg6 {
+            background-image: url('./images/ourservices/pg5.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .our-ser-bg7 {
+            background-image: url('./images/ourservices/pg6.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .carousel-control {
+            background-color: #f59e0b;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            margin: 0 0.25rem;
+            cursor: pointer;
+        }
+        
+        .tab-nav {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .tab-buttons {
+            display: flex;
+        }
+        
+        .tab-button {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+        }
+        
+        .tab-button.active {
+            border-bottom: 2px solid #f59e0b;
+            color: #f59e0b;
+        }
+        
+        .tab-content {
+            padding: 1rem 0;
+        }
+        
+        .tab-panel {
+            display: none;
+        }
+        
+        .tab-panel.active {
+            display: block;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .carousel-item {
+                flex: 0 0 calc(100% / 3);
+            }
+        }
+        
+        @media (max-width: 800px) {
+            .carousel-item {
+                flex: 0 0 calc(100% / 2);
+            }
+        }
+        
+        @media (max-width: 557px) {
+            .carousel-item {
+                flex: 0 0 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="bg-white p-4 shadow">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold text-yellow-900">Matrimony Site</div>
+            <div class="hidden md:flex space-x-4">
+                <a href="#" class="text-yellow-900">Home</a>
+                <a href="#" class="text-yellow-900">Profiles</a>
+                <a href="#" class="text-yellow-900">Dashboard</a>
+                <a href="#" class="text-yellow-900">Contact</a>
+            </div>
+            <button class="md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <div class="bg-custom">
+        <div class="mx-auto max-w-7xl justify-center items-center text-center justify-between p-10">
+            <div class="grid grid-cols-1 lg:grid-cols-4 justify-center lg:gap-5">
+                
+                <!-- Side Navigation -->
+                <div class="col-span-1 mb-6 lg:mb-0">
+                    <div class="bg-white rounded-lg shadow p-4">
+                        <h2 class="text-lg font-medium text-yellow-900 mb-4">Dashboard Menu</h2>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="block p-2 text-yellow-900 hover:bg-yellow-100 rounded">Home</a></li>
+                            <li><a href="#" class="block p-2 text-yellow-900 hover:bg-yellow-100 rounded">My Profile</a></li>
+                            <li><a href="#" class="block p-2 text-yellow-900 hover:bg-yellow-100 rounded">Matches</a></li>
+                            <li><a href="#" class="block p-2 text-yellow-900 hover:bg-yellow-100 rounded">Interests</a></li>
+                            <li><a href="#" class="block p-2 text-yellow-900 hover:bg-yellow-100 rounded">Messages</a></li>
+                            <li><a href="#" class="block p-2 text-yellow-900 hover:bg-yellow-100 rounded">Settings</a></li>
+                            <li><a href="#" class="block p-2 text-yellow-900 hover:bg-yellow-100 rounded">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Main Content -->
+                <div class="col-span-3">
+                    
+                    <!-- Carousel Section -->
+                    <h1 class="text-start text-yellow-900 ps-3 pt-3 font-medium">New Profiles Matches</h1>
+                    
+                    <div class="carousel-container mb-6">
+                        <div class="carousel-track">
+                            <!-- Card 1 -->
+                            <div class="carousel-item">
+                                <div class="card">
+                                    <div class="card-header our-ser-bg">
+                                        <div class="absolute inset-0 h-full w-full"></div>
+                                    </div>
+                                    <div class="card-body"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 2 -->
+                            <div class="carousel-item">
+                                <div class="card">
+                                    <div class="card-header our-ser-bg0">
+                                        <div class="absolute inset-0 h-full w-full"></div>
+                                    </div>
+                                    <div class="card-body"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 3 -->
+                            <div class="carousel-item">
+                                <div class="card">
+                                    <div class="card-header our-ser-bg1">
+                                        <div class="absolute inset-0 h-full w-full"></div>
+                                    </div>
+                                    <div class="card-body"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 4 -->
+                            <div class="carousel-item">
+                                <div class="card">
+                                    <div class="card-header our-ser-bg2">
+                                        <div class="absolute inset-0 h-full w-full"></div>
+                                    </div>
+                                    <div class="card-body"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 5 -->
+                            <div class="carousel-item">
+                                <div class="card">
+                                    <div class="card-header our-ser-bg3">
+                                        <div class="absolute inset-0 h-full w-full"></div>
+                                    </div>
+                                    <div class="card-body"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 6 -->
+                            <div class="carousel-item">
+                                <div class="card">
+                                    <div class="card-header our-ser-bg4">
+                                        <div class="absolute inset-0 h-full w-full"></div>
+                                    </div>
+                                    <div class="card-body"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Add more cards as needed -->
+                        </div>
+                        
+                        <div class="carousel-controls">
+                            <button class="carousel-control prev">&lt;</button>
+                            <button class="carousel-control next">&gt;</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Information Cards -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 font-medium text-yellow-900 pb-6 gap-4">
+                        <!-- Profile Status -->
+                        <div>
+                            <h1 class="pb-5">Profile Status</h1>
+                            <div class="bg-white rounded-lg shadow p-4">
+                                <div class="flex items-center justify-between mb-3">
+                                    <span>Profile Completion</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-yellow-600 h-2.5 rounded-full" style="width: 75%"></div>
+                                </div>
+                                <div class="mt-4">
+                                    <p class="text-sm text-gray-600">Complete your profile to get better matches</p>
+                                    <button class="mt-2 bg-yellow-600 text-white px-4 py-2 rounded-lg text-sm">Update Profile</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Plan Details -->
+                        <div>
+                            <h1 class="pb-5">Plan Details</h1>
+                            <div class="bg-white rounded-lg shadow p-4">
+                                <div class="text-center mb-3">
+                                    <h3 class="font-bold text-xl">Premium Plan</h3>
+                                    <p class="text-sm text-gray-600">Valid till: May 30, 2025</p>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between">
+                                        <span>Profile Views</span>
+                                        <span>Unlimited</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Contact Details</span>
+                                        <span>Unlimited</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span>Chat Access</span>
+                                        <span>Yes</span>
+                                    </div>
+                                </div>
+                                <div class="mt-3 text-center">
+                                    <button class="bg-yellow-600 text-white px-4 py-2 rounded-lg text-sm">Upgrade Plan</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Recent Chat List -->
+                        <div>
+                            <h1 class="pb-5">Recent Chat List</h1>
+                            <div class="bg-white rounded-lg shadow p-4">
+                                <ul class="divide-y divide-gray-200">
+                                    <li class="py-2 flex items-center">
+                                        <div class="w-10 h-10 rounded-full bg-gray-300 mr-3"></div>
+                                        <div>
+                                            <p class="font-medium">Priya S.</p>
+                                            <p class="text-sm text-gray-600">Hello, how are you?</p>
+                                        </div>
+                                    </li>
+                                    <li class="py-2 flex items-center">
+                                        <div class="w-10 h-10 rounded-full bg-gray-300 mr-3"></div>
+                                        <div>
+                                            <p class="font-medium">Raj K.</p>
+                                            <p class="text-sm text-gray-600">Nice to meet you</p>
+                                        </div>
+                                    </li>
+                                    <li class="py-2 flex items-center">
+                                        <div class="w-10 h-10 rounded-full bg-gray-300 mr-3"></div>
+                                        <div>
+                                            <p class="font-medium">Meera P.</p>
+                                            <p class="text-sm text-gray-600">Would like to know more</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="mt-3 text-center">
+                                    <button class="text-yellow-600 text-sm">View All</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tab Navigation -->
+                    <div class="tabnav font-medium text-yellow-900 pt-6">
+                        <h1 class="pb-5">Interest Requests</h1>
+                        <div class="bg-white rounded-lg shadow">
+                            <div class="tab-nav">
+                                <div class="tab-buttons">
+                                    <div class="tab-button active" data-tab="received">Received (15)</div>
+                                    <div class="tab-button" data-tab="sent">Sent (8)</div>
+                                    <div class="tab-button" data-tab="accepted">Accepted (3)</div>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-content">
+                                <!-- Received Tab Panel -->
+                                <div class="tab-panel active" id="received">
+                                    <div class="p-4">
+                                        <div class="space-y-4">
+                                            <div class="flex items-center justify-between">
+                                                <div class="flex items-center">
+                                                    <div class="w-12 h-12 rounded-full bg-gray-300 mr-3"></div>
+                                                    <div>
+                                                        <p class="font-medium">Amit S., 28</p>
+                                                        <p class="text-sm text-gray-600">Software Engineer, Mumbai</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex space-x-2">
+                                                    <button class="bg-green-500 text-white px-3 py-1 rounded text-sm">Accept</button>
+                                                    <button class="bg-red-500 text-white px-3 py-1 rounded text-sm">Decline</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center justify-between">
+                                                <div class="flex items-center">
+                                                    <div class="w-12 h-12 rounded-full bg-gray-300 mr-3"></div>
+                                                    <div>
+                                                        <p class="font-medium">Riya P., 26</p>
+                                                        <p class="text-sm text-gray-600">Doctor, Delhi</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex space-x-2">
+                                                    <button class="bg-green-500 text-white px-3 py-1 rounded text-sm">Accept</button>
+                                                    <button class="bg-red-500 text-white px-3 py-1 rounded text-sm">Decline</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center justify-between">
+                                                <div class="flex items-center">
+                                                    <div class="w-12 h-12 rounded-full bg-gray-300 mr-3"></div>
+                                                    <div>
+                                                        <p class="font-medium">Vikram S., 30</p>
+                                                        <p class="text-sm text-gray-600">Business Analyst, Bangalore</p>
+                                                    </div>
+                                                </div>
+                                                <div class="flex space-x-2">
+                                                    <button class="bg-green-500 text-white px-3 py-1 rounded text-sm">Accept</button>
+                                                    <button class="bg-red-500 text-white px-3 py-1 rounded text-sm">Decline</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-4 text-center">
+                                            <button class="text-yellow-600 text-sm">View All</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Sent Tab Panel -->
+                                <div class="tab-panel" id="sent">
+                                    <div class="p-4">
+                                        <div class="space-y-4">
+                                            <div class="flex items-center justify-between">
+                                                <div class="flex items-center">
+                                                    <div class="w-12 h-12 rounded-full bg-gray-300 mr-3"></div>
+                                                    <div>
+                                                        <p class="font-medium">Neha G., 27</p>
+                                                        <p class="text-sm text-gray-600">HR Manager, Pune</p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <span class="text-yellow-600 text-sm">Pending</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center justify-between">
+                                                <div class="flex items-center">
+                                                    <div class="w-12 h-12 rounded-full bg-gray-300 mr-3"></div>
+                                                    <div>
+                                                        <p class="font-medium">Karan M., 29</p>
+                                                        <p class="text-sm text-gray-600">Architect, Chennai</p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <span class="text-yellow-600 text-sm">Pending</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-4 text-center">
+                                            <button class="text-yellow-600 text-sm">View All</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Accepted Tab Panel -->
+                                <div class="tab-panel" id="accepted">
+                                    <div class="p-4">
+                                        <div class="space-y-4">
+                                            <div class="flex items-center justify-between">
+                                                <div class="flex items-center">
+                                                    <div class="w-12 h-12 rounded-full bg-gray-300 mr-3"></div>
+                                                    <div>
+                                                        <p class="font-medium">Suman R., 28</p>
+                                                        <p class="text-sm text-gray-600">Teacher, Hyderabad</p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <button class="bg-blue-500 text-white px-3 py-1 rounded text-sm">Chat Now</button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="flex items-center justify-between">
+                                                <div class="flex items-center">
+                                                    <div class="w-12 h-12 rounded-full bg-gray-300 mr-3"></div>
+                                                    <div>
+                                                        <p class="font-medium">Anand K., 31</p>
+                                                        <p class="text-sm text-gray-600">Professor, Kolkata</p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <button class="bg-blue-500 text-white px-3 py-1 rounded text-sm">Chat Now</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-yellow-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Matrimony Site</h3>
+                    <p class="text-sm">Find your perfect match with our trusted matrimonial service. We've been connecting hearts since 2010.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-yellow-300">Home</a></li>
+                        <li><a href="#" class="hover:text-yellow-300">About Us</a></li>
+                        <li><a href="#" class="hover:text-yellow-300">Services</a></li>
+                        <li><a href="#" class="hover:text-yellow-300">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-yellow-300">Premium Membership</a></li>
+                        <li><a href="#" class="hover:text-yellow-300">Success Stories</a></li>
+                        <li><a href="#" class="hover:text-yellow-300">Help & Support</a></li>
+                        <li><a href="#" class="hover:text-yellow-300">FAQs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li>123 Wedding Street, Love City</li>
+                        <li>info@matrimonysite.com</li>
+                        <li>+91 9876543210</li>
+                    </ul>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="hover:text-yellow-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-yellow-300">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="hover:text-yellow-300">
+                            <svg class

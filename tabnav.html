@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Requests Dashboard</title>
+    <style>
+        /* General styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Tab navigation */
+        .tab-nav {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            background-color: #f1f1f1;
+            padding: 8px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .tab-button {
+            padding: 8px 16px;
+            font-weight: 500;
+            font-size: 14px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .tab-button.active {
+            background-color: #8B4513;
+            color: white;
+        }
+        .tab-button:not(.active) {
+            background-color: white;
+            color: #8B4513;
+        }
+
+        /* Card styling */
+        .card {
+            display: grid;
+            grid-template-columns: 1fr;
+            text-align: start;
+            justify-content: center;
+            color: #8B4513;
+            margin: 20px 0;
+            padding: 8px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        @media (min-width: 768px) {
+            .card {
+                grid-template-columns: 1fr 2fr 1fr;
+            }
+        }
+        .card-header {
+            background-color: #8B4513;
+            max-width: 100%;
+            overflow: hidden;
+        }
+        .card-header img {
+            width: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+            max-height: 250px;
+        }
+        .card-header img:hover {
+            transform: scale(1.1);
+        }
+        .card-body {
+            padding: 15px;
+        }
+        .card-body h1 {
+            margin-bottom: 10px;
+        }
+        .info-list {
+            list-style-type: disc;
+            list-style-position: inside;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        @media (min-width: 768px) {
+            .info-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (min-width: 1024px) {
+            .info-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (min-width: 1280px) {
+            .info-list {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+        .info-list li {
+            font-size: 14px;
+            font-weight: 300;
+            color: #68686a;
+        }
+        .info-list li span {
+            font-size: 16px;
+            padding-left: 8px;
+        }
+        .view-profile-btn {
+            margin-top: 12px;
+            padding: 4px 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #8B4513;
+            background-color: transparent;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .view-profile-btn:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card-footer {
+            padding: 15px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+        .button-group {
+            display: flex;
+            gap: 8px;
+        }
+        .accept-btn {
+            padding: 4px 10px;
+            border-radius: 6px;
+            background-color: #2e8b57;
+            color: white;
+            border: 1px solid transparent;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .accept-btn:hover {
+            background-color: #3c9d67;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .deny-btn {
+            padding: 4px 10px;
+            border-radius: 6px;
+            background-color: transparent;
+            color: #e53e3e;
+            border: 1px solid #e53e3e;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .deny-btn:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Tab Navigation -->
+        <div class="tab-nav">
+            <button class="tab-button active" data-tab="newRequests">New requests</button>
+            <button class="tab-button" data-tab="acceptRequests">Accept request</button>
+            <button class="tab-button" data-tab="denyRequests">Deny request</button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-container">
+            <!-- New Requests Tab -->
+            <div id="newRequests" class="tab-content active">
+                <!-- Cards will be populated here by JavaScript -->
+            </div>
+
+            <!-- Accept Requests Tab -->
+            <div id="acceptRequests" class="tab-content">
+                <!-- Cards will be populated here by JavaScript -->
+            </div>
+
+            <!-- Deny Requests Tab -->
+            <div id="denyRequests" class="tab-content">
+                <!-- Cards will be populated here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data for each tab
+        const newRequests = [
+            { 
+                name: 'Rashma', 
+                city: 'Trichy', 
+                age: '27', 
+                height: '6.4', 
+                job: 'working', 
+                requesttime: '10:30AM, 18 August 2024', 
+                viewbutton: 'view full profile', 
+                src: 'https://via.placeholder.com/300x400?text=Profile+1' 
+            },
+            { 
+                name: 'Androw', 
+                city: 'Trichy', 
+                age: '27', 
+                height: '6.4', 
+                job: 'working', 
+                requesttime: '10:30AM, 18 August 2024', 
+                viewbutton: 'view full profile', 
+                src: 'https://via.placeholder.com/300x400?text=Profile+2' 
+            },
+            { 
+                name: 'Androw', 
+                city: 'Trichy', 
+                age: '27', 
+                height: '6.4', 
+                job: 'working', 
+                requesttime: '10:30AM, 18 August 2024', 
+                viewbutton: 'view full profile', 
+                src: 'https://via.placeholder.com/300x400?text=Profile+3' 
+            },
+            { 
+                name: 'Androw', 
+                city: 'Trichy', 
+                age: '27', 
+                height: '6.4', 
+                job: 'working', 
+                requesttime: '10:30AM, 18 August 2024', 
+                viewbutton: 'view full profile', 
+                src: 'https://via.placeholder.com/300x400?text=Profile+4' 
+            }
+        ];
+
+        const acceptRequests = [
+            { 
+                name: 'Rashma', 
+                city: 'Trichy', 
+                age: '27', 
+                height: '6.4', 
+                job: 'working', 
+                requesttime: '10:30AM, 18 August 2024', 
+                viewbutton: 'view full profile', 
+                src: 'https://via.placeholder.com/300x400?text=Profile+5' 
+            },
+            { 
+                name: 'Androw', 
+                city: 'Trichy', 
+                age: '27', 
+                height: '6.4', 
+                job: 'working', 
+                requesttime: '10:30AM, 18 August 2024', 
+                viewbutton: 'view full profile', 
+                src: 'https://via.placeholder.com/300x400?text=Profile+2' 
+            }
+        ];
+
+        const denyRequests = [
+            { 
+                name: 'Rashma', 
+                city: 'Trichy', 
+                age: '27', 
+                height: '6.4', 
+                job: 'working', 
+                requesttime: '10:30AM, 18 August 2024', 
+                viewbutton: 'view full profile', 
+                src: 'https://via.placeholder.com/300x400?text=Profile+6' 
+            }
+        ];
+
+        // Function to create a card element
+        function createCardElement(data, cardType) {
+            const card = document.createElement('div');
+            card.className = 'card';
+
+            // Card Header (Image)
+            const cardHeader = document.createElement('div');
+            cardHeader.className = 'card-header';
+            const img = document.createElement('img');
+            img.src = data.src;
+            img.alt = `${data.name}'s profile picture`;
+            cardHeader.appendChild(img);
+            card.appendChild(cardHeader);
+
+            // Card Body (Profile Info)
+            const cardBody = document.createElement('div');
+            cardBody.className = 'card-body';
+            
+            const name = document.createElement('h1');
+            name.textContent = data.name;
+            cardBody.appendChild(name);
+
+            const infoList = document.createElement('ul');
+            infoList.className = 'info-list';
+
+            // City Info
+            const cityItem = document.createElement('li');
+            cityItem.innerHTML = `City: <span>${data.city}</span>`;
+            infoList.appendChild(cityItem);
+
+            // Age Info
+            const ageItem = document.createElement('li');
+            ageItem.innerHTML = `Age: <span>${data.age}</span>`;
+            infoList.appendChild(ageItem);
+
+            // Height Info
+            const heightItem = document.createElement('li');
+            heightItem.innerHTML = `Height: <span>${data.height}</span>`;
+            infoList.appendChild(heightItem);
+
+            cardBody.appendChild(infoList);
+
+            // View Profile Button
+            const viewButton = document.createElement('button');
+            viewButton.className = 'view-profile-btn';
+            viewButton.textContent = data.viewbutton;
+            cardBody.appendChild(viewButton);
+
+            card.appendChild(cardBody);
+
+            // Card Footer (Action Buttons)
+            const cardFooter = document.createElement('div');
+            cardFooter.className = 'card-footer';
+
+            const buttonGroup = document.createElement('div');
+            buttonGroup.className = 'button-group';
+
+            // Add appropriate buttons based on card type
+            if (cardType === 'new' || cardType === 'deny') {
+                const acceptButton = document.createElement('button');
+                acceptButton.className = 'accept-btn';
+                acceptButton.textContent = 'Accept';
+                acceptButton.addEventListener('click', function() {
+                    // Handle accept action
+                    alert(`Accepted request from ${data.name}`);
+                });
+                buttonGroup.appendChild(acceptButton);
+            }
+
+            if (cardType === 'new' || cardType === 'accept') {
+                const denyButton = document.createElement('button');
+                denyButton.className = 'deny-btn';
+                denyButton.textContent = 'Deny';
+                denyButton.addEventListener('click', function() {
+                    // Handle deny action
+                    alert(`Denied request from ${data.name}`);
+                });
+                buttonGroup.appendChild(denyButton);
+            }
+
+            cardFooter.appendChild(buttonGroup);
+            card.appendChild(cardFooter);
+
+            return card;
+        }
+
+        // Function to populate tab content
+        function populateTabContent(tabId, data, cardType) {
+            const tabContent = document.getElementById(tabId);
+            tabContent.innerHTML = ''; // Clear existing content
+
+            data.forEach(item => {
+                const card = createCardElement(item, cardType);
+                tabContent.appendChild(card);
+            });
+        }
+
+        // Initialize tabs with content
+        populateTabContent('newRequests', newRequests, 'new');
+        populateTabContent('acceptRequests', acceptRequests, 'accept');
+        populateTabContent('denyRequests', denyRequests, 'deny');
+
+        // Tab switching functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons and tab contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                // Show corresponding tab content
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Add functionality to buttons
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('view-profile-btn')) {
+                const name = e.target.closest('.card').querySelector('h1').textContent;
+                alert(`Viewing full profile of ${name}`);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Profiles - Matrimony</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #870f44;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #870f44;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            color: white;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #870f44;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            color: white;
+            border: 1px solid white;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-size: 1.125rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .hero-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Main Content */
+        .main-content {
+            background-color: #fefbf1;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr 2fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .grid {
+                grid-template-columns: 1fr 3fr;
+            }
+        }
+
+        /* Filter Card */
+        .filter-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .filter-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            color: #870f44;
+        }
+
+        .filter-label {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .filter-icon {
+            border: 1px solid #870f44;
+            padding: 0.25rem;
+            border-radius: 0.25rem;
+            color: #870f44;
+        }
+
+        .filter-label-text {
+            font-weight: 500;
+        }
+
+        select {
+            border: 1px solid #870f44;
+            border-radius: 0.25rem;
+            padding: 0.5rem;
+            width: 100%;
+            color: #333;
+        }
+
+        .radio-group {
+            padding-left: 0.75rem;
+        }
+
+        .radio-option {
+            display: flex;
+            gap: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        input[type="radio"] {
+            accent-color: #333;
+        }
+
+        /* Profile Cards */
+        .profiles-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .profile-heading {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 1024px) {
+            .profile-heading {
+                font-size: 1.5rem;
+            }
+        }
+
+        .profile-card {
+            display: grid;
+            grid-template-columns: 1fr;
+            background-color: white;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .profile-card:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (min-width: 640px) {
+            .profile-card {
+                grid-template-columns: 1fr 2fr 1fr;
+            }
+        }
+
+        .profile-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            background-color: #870f44;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .profile-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .profile-info {
+            padding: 1.5rem;
+            color: #333;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .profile-name {
+                font-size: 1.875rem;
+            }
+        }
+
+        .profile-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .profile-tag {
+            background-color: #718fa0;
+            color: white;
+            padding: 0.25rem 0.625rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s;
+        }
+
+        .profile-tag:hover {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-actions {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+
+        .btn-support, .btn-heart {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #870f44;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .btn-heart {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            padding: 0;
+        }
+
+        .btn-support:hover, .btn-heart:hover {
+            background-color: #6a0c34;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer-section h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            color: #ccc;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="brand">Matrimony</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Profiles</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Login</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <img src="./images/allprofile.jpg" alt="Hero Background" class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Lakhs of Happy Marriages</h1>
+            <a href="#" class="hero-btn">Join Now For Free</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="grid">
+                <!-- Filters Section -->
+                <div class="filter-card">
+                    <div class="filter-section">
+                        <div class="filter-label">
+                            <div class="filter-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <span class="filter-label-text">I'M Looking for</span>
+                        </div>
+                        <select>
+                            <option>I'M Looking for</option>
+                            <option>Men</option>
+                            <option>Women</option>
+                        </select>
+
+                        <div class="filter-label">
+                            <div class="filter-icon">
+                                <i class="far fa-clock"></i>
+                            </div>
+                            <span class="filter-label-text">Age</span>
+                        </div>
+                        <select>
+                            <option>Age</option>
+                            <option>18 to 30</option>
+                            <option>31 to 40</option>
+                            <option>41 to 50</option>
+                            <option>51 to 60</option>
+                        </select>
+
+                        <div class="filter-label">
+                            <div class="filter-icon">
+                                <i class="far fa-bell"></i>
+                            </div>
+                            <span class="filter-label-text">Religion</span>
+                        </div>
+                        <select>
+                            <option>Religion</option>
+                            <option>Hindu</option>
+                            <option>Muslim</option>
+                            <option>Christian</option>
+                        </select>
+
+                        <div class="filter-label">
+                            <div class="filter-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span class="filter-label-text">Location</span>
+                        </div>
+                        <select>
+                            <option>Any Location</option>
+                            <option>Chennai</option>
+                            <option>Trichy</option>
+                            <option>Coimbatore</option>
+                            <option>Madurai</option>
+                            <option>Dindigul</option>
+                            <option>Virudhachalam</option>
+                        </select>
+
+                        <div class="filter-label">
+                            <div class="filter-icon">
+                                <i class="far fa-thumbs-up"></i>
+                            </div>
+                            <span class="filter-label-text">Availability</span>
+                        </div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="all-avail" name="avail" checked>
+                                <label for="all-avail">All</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="available" name="avail">
+                                <label for="available">Available</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="offline" name="avail">
+                                <label for="offline">Offline</label>
+                            </div>
+                        </div>
+
+                        <div class="filter-label">
+                            <div class="filter-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <span class="filter-label-text">Profile</span>
+                        </div>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="all-profile" name="profile" checked>
+                                <label for="all-profile">All</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="premium" name="profile">
+                                <label for="premium">Premium</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="free" name="profile">
+                                <label for="free">Free</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profiles Section -->
+                <div class="profiles-container">
+                    <h1 class="profile-heading">Showing Profiles</h1>
+                    
+                    <!-- Profile cards will be inserted here by JavaScript -->
+                    <div id="profiles-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <div class="footer-links">
+                        <a href="#">Our Story</a>
+                        <a href="#">Team</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Testimonials</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <div class="footer-links">
+                        <a href="#">Free Membership</a>
+                        <a href="#">Premium Plans</a>
+                        <a href="#">Success Stories</a>
+                        <a href="#">Partner Search</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="footer-links">
+                        <a href="#">Help Center</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">FAQs</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2025 Matrimony. All Rights Reserved.
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Profile data
+        const profiles = [
+            { name: 'Rashma', course: 'B.Sc', profession: 'IT', age: '25 Years Old', height: '5.6', image: './images/userDashboard/1.jpg' },
+            { name: 'Priya', course: 'M.Com', profession: 'Accountant', age: '27 Years Old', height: '5.4', image: './images/userDashboard/13.jpg' },
+            { name: 'Anjali', course: 'B.Tech', profession: 'Software Engineer', age: '26 Years Old', height: '5.5', image: './images/userDashboard/14.jpg' },
+            { name: 'Divya', course: 'MBA', profession: 'Marketing', age: '28 Years Old', height: '5.7', image: './images/userDashboard/16.jpg' },
+            { name: 'Meera', course: 'BCA', profession: 'Web Developer', age: '24 Years Old', height: '5.3', image: './images/userDashboard/2.jpg' },
+            { name: 'Lakshmi', course: 'Ph.D', profession: 'Professor', age: '30 Years Old', height: '5.8', image: './images/userDashboard/3.jpg' }
+        ];
+
+        // Function to render profiles
+        function renderProfiles() {
+            const profilesList = document.getElementById('profiles-list');
+            
+            let profilesHTML = '';
+            
+            profiles.forEach(profile => {
+                profilesHTML += `
+                    <div class="profile-card">
+                        <div class="profile-image">
+                            <img src="${profile.image}" alt="${profile.name}">
+                        </div>
+                        <div class="profile-info">
+                            <h2 class="profile-name">${profile.name}</h2>
+                            <div class="profile-tags">
+                                <span class="profile-tag">${profile.course}</span>
+                                <span class="profile-tag">${profile.profession}</span>
+                                <span class="profile-tag">${profile.age}</span>
+                                <span class="profile-tag">${profile.height}</span>
+                                <span class="profile-tag">More Details</span>
+                            </div>
+                            <button class="btn-support">Send Interest</button>
+                        </div>
+                        <div class="profile-actions">
+                            <button class="btn-heart">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            profilesList.innerHTML = profilesHTML;
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProfiles();
+            
+            // Add event listeners for filter changes
+            const filterSelects = document.querySelectorAll('select');
+            filterSelects.forEach(select => {
+                select.addEventListener('change', function() {
+                    // In a real application, you would filter the profiles here
+                    console.log('Filter changed:', this.value);
+                });
+            });
+            
+            const radioButtons = document.querySelectorAll('input[type="radio"]');
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    // In a real application, you would filter the profiles here
+                    console.log('Radio changed:', this.id);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

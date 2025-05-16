@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Details</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #78350f;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .navbar-item {
+            text-decoration: none;
+            color: #78350f;
+            font-weight: 500;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2.5rem;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .profile-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        .profile-image {
+            width: 100%;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .profile-details {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .profile-name {
+            font-weight: bold;
+            font-size: 1.875rem;
+            color: #78350f;
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+        }
+
+        @media (min-width: 768px) {
+            .profile-name {
+                font-size: 3rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .profile-name {
+                font-size: 3.75rem;
+            }
+        }
+
+        .button-container {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-views {
+            background-color: #fef3c7;
+            color: #78350f;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+        }
+
+        .btn-available {
+            background-color: #d1fae5;
+            color: #064e3b;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+        }
+
+        @media (min-width: 1024px) {
+            .btn-views, .btn-available {
+                font-size: 1rem;
+            }
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        @media (min-width: 1024px) {
+            .info-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .info-card {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem;
+            color: #78350f;
+            border: 1px solid #78350f;
+            border-radius: 0.25rem;
+            justify-content: center;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .info-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            object-fit: cover;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-label {
+            font-weight: 300;
+        }
+
+        .info-value {
+            font-weight: 500;
+            font-size: 0.75rem;
+        }
+
+        @media (min-width: 640px) {
+            .info-value {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .info-value {
+                font-size: 1rem;
+            }
+        }
+
+        .section-title {
+            font-weight: bold;
+            font-size: 0.875rem;
+            color: #78350f;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 1.125rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .section-title {
+                font-size: 1.25rem;
+            }
+        }
+
+        .section-text {
+            font-size: 0.75rem;
+            color: #78350f;
+        }
+
+        @media (min-width: 640px) {
+            .section-text {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .section-text {
+                font-size: 1rem;
+            }
+        }
+
+        .personal-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .personal-info-item {
+            list-style-type: none;
+            font-size: 0.75rem;
+            color: #78350f;
+        }
+
+        @media (min-width: 640px) {
+            .personal-info-item {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .personal-info-item {
+                font-size: 1rem;
+            }
+        }
+
+        .footer {
+            background-color: #78350f;
+            color: #ffffff;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- NavBar -->
+    <nav class="navbar">
+        <div class="navbar-brand">LOGO</div>
+        <div class="navbar-menu">
+            <a href="#" class="navbar-item">Home</a>
+            <a href="#" class="navbar-item">About</a>
+            <a href="#" class="navbar-item">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="profile-grid">
+            <div>
+                <img src="/images/EXPLORE4.jpg" alt="Profile Image" class="profile-image">
+            </div>
+            <div class="profile-details">
+                <h1 class="profile-name">Angelina Jolie</h1>
+                
+                <div class="button-container">
+                    <button class="btn-views">100 views</button>
+                    <button class="btn-available">available online</button>
+                </div>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <img src="./images/profilesdetails/city.png" alt="City" class="info-icon">
+                        <h1 class="info-label">City:</h1>
+                        <h1 class="info-value">Angelina Jolie</h1>
+                    </div>
+                    
+                    <div class="info-card">
+                        <img src="./images/profilesdetails/age.png" alt="Age" class="info-icon">
+                        <h1 class="info-label">Age:</h1>
+                        <h1 class="info-value">25</h1>
+                    </div>
+                    
+                    <div class="info-card">
+                        <img src="./images/profilesdetails/city.png" alt="Height" class="info-icon">
+                        <h1 class="info-label">Height:</h1>
+                        <h1 class="info-value">5.6</h1>
+                    </div>
+                    
+                    <div class="info-card">
+                        <img src="./images/profilesdetails/city.png" alt="Job" class="info-icon">
+                        <h1 class="info-label">Job:</h1>
+                        <h1 class="info-value">Developer</h1>
+                    </div>
+                </div>
+                
+                <div>
+                    <h1 class="section-title">ABOUT</h1>
+                    <p class="section-text">
+                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+                        <br><br>
+                        Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text.
+                    </p>
+                </div>
+                
+                <div>
+                    <h1 class="section-title">Personal Info</h1>
+                    <ul class="personal-info-grid section-text">
+                        <li class="personal-info-item">Name: Angelina Jolie</li>
+                        <li class="personal-info-item">Father's name: John Smith</li>
+                        <li class="personal-info-item">Age: 24</li>
+                        <li class="personal-info-item">Date of birth: 13 Oct 1999</li>
+                        <li class="personal-info-item">Height: 167cm</li>
+                        <li class="personal-info-item">Weight: 65kg</li>
+                        <li class="personal-info-item">Degree: MSC Computer Science</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Profile Page. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript functionality could be added here
+        // For example, view counter or online status updates
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded successfully');
+            
+            // Example functionality: update view count
+            const viewsButton = document.querySelector('.btn-views');
+            let viewCount = 100;
+            
+            // Just a demonstration - in a real app this would be stored server-side
+            setInterval(() => {
+                viewCount++;
+                viewsButton.textContent = viewCount + ' views';
+            }, 60000); // Updates every minute
+        });
+    </script>
+</body>
+</html>

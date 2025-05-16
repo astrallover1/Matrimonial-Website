@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navigation Bar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div>
+                <a href="index.html">
+                    <img src="./images/logo-a.png" alt="Logo" class="logo">
+                </a>
+            </div>
+            
+            <div class="mobile-menu-button-container">
+                <!-- <button type="button" class="mobile-menu-animate" aria-label="Open menu">
+                    <i class="fas fa-bars"></i>
+                </button> -->
+                <button type="button" id="mobile-menu-toggle" class="mobile-menu-button" aria-label="Open menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <div class="nav-links">
+                <div class="flyout-container">
+                    <!-- <a href="#" class="nav-link">
+                        EXPLORE
+                        <span class="nav-underline"></span>
+                    </a> -->
+                    
+                   
+                </div>
+                
+                <div class="flyout-container">
+                    <a href="#" class="nav-link">
+                        ALL PAGES
+                        <span class="nav-underline"></span>
+                    </a>
+                    <div class="flyout-menu" id="allpages-menu">
+                        <div class="flyout-arrow"></div>
+                        <div class="allpages-content">
+                            <div class="page-set">
+                                <h3 class="page-set-title">PAGE SETS 1</h3>
+                                <a href="profiles.html" class="page-link">ALL PROFILES</a>
+                                <a href="profiledetails.html" class="page-link">PROFILE DETAILS</a>
+                                <a href="priceingdetails.html" class="page-link">PRICING PLANING</a>
+                                <a href="ask.html" class="page-link">ASK YOUR DOUBTS</a>
+                            </div>
+                            <div class="page-set">
+                                <h3 class="page-set-title">PAGE SETS 2</h3>
+                                <a href="login.html" class="page-link">LOGIN</a>
+                                <a href="signup.html" class="page-link">SING-UP</a>
+                                <a href="contact.html" class="page-link">CONTACT</a>
+                                <a href="about.html" class="page-link">ABOUT</a>
+                            </div>
+                           
+                        </div>
+                        <hr class="divider">
+                        <h3 class="flyout-header">USER DASHBOARD PAGES</h3>
+                        <div class="allpages-content">
+                            <div class="page-set">
+                                <a href="dashboard.html" class="page-link">DASHBOARD</a>
+                                <a href="priceingdetails.html" class="page-link">MY PLAN DETAILS</a>
+                                
+                            </div>
+                          
+                            <div class="page-set">
+                                <a href="profiledetails.html" class="page-link">MY PROFILE</a>
+                                <a href="profileedit.html" class="page-link">EDIT FULL PROFILE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flyout-container">
+                    <a href="#" class="nav-link">
+                        TOP PAGES
+                        <span class="nav-underline"></span>
+                    </a>
+                    <div class="flyout-menu simple-menu" id="toppages-menu">
+                        <div class="flyout-arrow"></div>
+                        <a href="profiles.html" class="page-link">ALL PROFILES</a>
+                        <a href="profiledetails.html" class="page-link">PROFILE DETAILS</a>
+                        <a href="about.html" class="page-link">ABOUT</a>
+                        <a href="contact.html" class="page-link">CONTACT</a>
+                        <a href="login.html" class="page-link">LOGIN</a>
+                        <a href="signup.html" class="page-link">SIGN-UP</a>
+                        <a href="priceingdetails.html" class="page-link">PRICING PLANS</a>
+                    </div>
+                </div>
+                
+                <a href="priceingdetails.html" class="nav-link">
+                    PLANING
+                    <span class="nav-underline"></span>
+                </a>
+                
+                <a href="register.html" class="nav-link">
+                    REGISTER
+                    <span class="nav-underline"></span>
+                </a>
+                
+                <div class="flyout-container">
+                    <a href="#" class="nav-link">
+                        DASHBOARD
+                        <span class="nav-underline"></span>
+                    </a>
+                    <div class="flyout-menu simple-menu" id="dashboard-menu">
+                        <div class="flyout-arrow"></div>
+                        <a href="dashboard.html" class="page-link">DASHBOARD</a>
+                        <a href="profile.html" class="page-link">MY PROFILE</a>
+                       
+                        <a href="priceingdetails.html" class="page-link">MY PLAN DETAILS</a>
+                        
+                        <a href="profileedit.html" class="page-link">EDIT FULL PROFILE</a>
+                        <a href="signup.html" class="page-link">SIGN-UP</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile-container">
+                <img src="./images/EXPLORE4.jpg" alt="Profile" class="profile-img">
+                <div class="user-info">
+                    <span class="user-name">Kandhavelu</span>
+                    <span class="user-email">Kandhavelu8610@.com</span>
+                    <a href="index.html" class="logout-link">Logout</a>
+                </div>
+                
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div class="backdrop" id="backdrop"></div>
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="index.html">
+                <img src="https://via.placeholder.com/120x40" alt="Logo" class="logo">
+            </a>
+            <button type="button" class="close-menu" id="close-menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <h1 class="mobile-section-title">EXPLORE PAGES</h1>
+        <a href="#" class="mobile-link">PROWSE PROFILE</a>
+        <a href="#" class="mobile-link">WEDDING PROFILE</a>
+        <a href="#" class="mobile-link">ALL SERVICES</a>
+        
+        <h1 class="mobile-section-title">ALL PAGES</h1>
+        <a href="profiles.html" class="mobile-link">ALL PROFILE</a>
+        <a href="profiledetails.html" class="mobile-link">PROFILE DETAILS</a>
+        <a href="#" class="mobile-link">WEDDING</a>
+        <a href="#" class="mobile-link">WEDDING VIDEO</a>
+        <a href="#" class="mobile-link">OUR SERVICE</a>
+        <a href="priceingdetails.html" class="mobile-link">PRICING PLANING</a>
+        <a href="login.html" class="mobile-link">LOGIN</a>
+        <a href="signup.html" class="mobile-link">SING-UP</a>
+        <a href="#" class="mobile-link">PHOTO GALLERY 1</a>
+        <a href="#" class="mobile-link">PHOTO GALLERY 2</a>
+        <a href="contact.html" class="mobile-link">CONTACT</a>
+        <a href="about.html" class="mobile-link">ABOUT</a>
+        <a href="ask.html" class="mobile-link">ASK YOUR DOUBTS</a>
+      
+        
+        <h1 class="mobile-section-title">SUPPORT TEAM</h1>
+        <div class="mobile-profile">
+            <img src="https://via.placeholder.com/80" alt="Profile" class="mobile-profile-img">
+            <div class="mobile-profile-info">
+                <div class="mobile-profile-name">veerapandiyan</div>
+                <div class="mobile-profile-title">user</div>
+                <a href="#" class="ask-btn">Ask Your Doubts</a>
+            </div>
+        </div>
+        
+        <div class="social-links">
+            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    </body>
+</html>
+
+<!-- banner -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrimony Site</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+          
+       
+    
+    
+    <!-- Banner Section -->
+    <div class="bg-img">
+        <div class="banner-content">
+            <h1>#1 Matrimony</h1>
+            <h1 class="main-title">Find Your<br><span class="text-red">Right Match</span> here</h1>
+            <p>Most Trusted Matrimony Platform in the world.</p>
+            
+            <form class="search-form">
+                <select name="Gender">
+                    <option value="">I'M Looking for</option>
+                    <option value="">Men</option>
+                    <option value="">Women</option>
+                </select>
+                
+                <select name="Age">
+                    <option value="">Age</option>
+                    <option value="">18 to 30</option>
+                    <option value="">31 to 40</option>
+                    <option value="">41 to 50</option>
+                    <option value="">51 to 60</option>
+                </select>
+                
+                <select name="Religian">
+                    <option value="">Any</option>
+                    <option value="">Hindu</option>
+                    <option value="">Muslim</option>
+                    <option value="">Cristian</option>
+                </select>
+                
+                <select name="Location">
+                    <option value="">Any Location</option>
+                    <option value="">Chennai</option>
+                    <option value="">Trichy</option>
+                    <option value="">Coimpature</option>
+                    <option value="">Madhurai</option>
+                    <option value="">Dindukal</option>
+                    <option value="">Viruthachalam</option>
+                </select>
+                
+                <button type="submit" class="btn-primary">Search</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Our Services Section -->
+    <div class="services-section">
+        <div class="container">
+            <h1>QUICK ACCESS</h1>
+            <h1>OUR SERVICES</h1>
+            
+            <div class="owl-carousel services-carousel">
+                <!-- Service Card 1 -->
+                <div class="service-card">
+                    <div class="service-card-bg our-ser-bg"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">
+                            <img src="./images/ourservices/bg.jpg" alt="Profile Icon">
+                        </div>
+                        <h1>PROFILE</h1>
+                        <p>Start for free</p>
+                    </div>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="service-card">
+                    <div class="service-card-bg our-ser-bg0"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">
+                            <img src="./images/ourservices/vector1.png" alt="Wedding Icon">
+                        </div>
+                        <h1>WEDDING</h1>
+                        <p>Start for free</p>
+                    </div>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="service-card">
+                    <div class="service-card-bg our-ser-bg1"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">
+                            <img src="./images/ourservices/vector2.png" alt="Articles Icon">
+                        </div>
+                        <h1>ARTICLES</h1>
+                        <p>Start for free</p>
+                    </div>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="service-card">
+                    <div class="service-card-bg our-ser-bg2"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">
+                            <img src="./images/ourservices/vector3.png" alt="All Services Icon">
+                        </div>
+                        <h1>ALL SERVICE</h1>
+                        <p>Start for free</p>
+                    </div>
+                </div>
+                
+                <!-- Service Card 5 -->
+                <div class="service-card">
+                    <div class="service-card-bg our-ser-bg3"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">
+                            <img src="./images/ourservices/vector4.png" alt="Gallery Icon">
+                        </div>
+                        <h1>GALLERY</h1>
+                        <p>Start for free</p>
+                    </div>
+                </div>
+                
+                <!-- Service Card 6 -->
+                <div class="service-card">
+                    <div class="service-card-bg our-ser-bg4"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">
+                            <img src="./images/ourservices/vector5.png" alt="Join Now Icon">
+                        </div>
+                        <h1>JOIN NOW</h1>
+                        <p>Start for free</p>
+                    </div>
+                </div>
+                
+                <!-- Service Card 7 -->
+                <div class="service-card">
+                    <div class="service-card-bg our-ser-bg5"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">
+                            <img src="./images/ourservices/vector6.png" alt="Weddings Icon">
+                        </div>
+                        <h1>WEDDINGS</h1>
+                        <p>Start for free</p>
+                    </div>
+                </div>
+                
+                <!-- Service Card 8 -->
+                <div class="service-card">
+                    <div class="service-card-bg our-ser-bg6"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">
+                            <img src="./images/ourservices/vector7.png" alt="Block Icon">
+                        </div>
+                        <h1>BLOCK</h1>
+                        <p>Start for free</p>
+                    </div>
+                </div>
+                
+                <!-- Service Card 9 -->
+                <div class="service-card">
+                    <div class="service-card-bg our-ser-bg7"></div>
+                    <div class="service-card-body">
+                        <div class="service-icon">
+                            <img src="./images/ourservices/vector8.png" alt="Articles Icon">
+                        </div>
+                        <h1>ARTICLES</h1>
+                        <p>Start for free</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery required for Owl Carousel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
+    <script src="script1.js"></script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trusted Brand Section</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="bg-fcfcfc">
+        <div class="max-w-7xl text-center py-20">
+            <h1 class="text-c48c46 text-xl font-semibold tracking-wide pb-5">Trusted Brand</h1>
+            <h1 class="text-66451c text-4xl font-semibold tracking-wide pb-5">Trusted by 1500+ Couple</h1>
+
+            <div class="testimonials-grid">
+                <!-- Testimonial Card 1 -->
+                <div class="testimonial-card">
+                    <div class="card-header">
+                        <img src="./images/EXPLORE4.jpg" class="profile-img" alt="Angelina">
+                        <div class="profile-info">
+                            <div class="profile-header">
+                                <h5 class="profile-name"></h5>
+                                <div class="star-rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="star">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="star">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="star">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="star">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="star">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="review-text">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae accusamus accusantium quaerat veritatis, dolorum, nulla rerum deserunt, facere officia odio ea? Beatae quam accusamus dolore!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Testimonial Card 2 -->
+                <div class="testimonial-card">
+                    <div class="card-header">
+                        <img src="./images/EXPLORE1.jpg" class="profile-img" alt="Riya">
+                        <div class="profile-info">
+                            <div class="profile-header">
+                                <h5 class="profile-name"></h5>
+                                <div class="star-rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="star">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="star">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="star">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="star">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="star">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="review-text">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae accusamus accusantium quaerat veritatis, dolorum, nulla rerum deserunt, facere officia odio ea? Beatae quam accusamus dolore!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Testimonial Card 3 -->
+                <div class="testimonial-card">
+                    <div class="card-header">
+                        <img src="./images/EXPLORE3.jpg" class="profile-img" alt="Jenis">
+                        <div class="profile-info">
+                            <div class="profile-header">
+                                <h5 class="profile-name"></h5>
+                                <div class="star-rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="star">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="star">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="star">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="star">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="star">
+                                        <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="review-text">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae accusamus accusantium quaerat veritatis, dolorum, nulla rerum deserunt, facere officia odio ea? Beatae quam accusamus dolore!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-primary">More Customer Reviews</button>
+        </div>
+    </div>
+
+    <script src="./script2.js">
+
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Choose Us - Matrimony</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <div class="bg">
+        <section class="max-w-7xl">
+            <div class="text-center tracking-wide text-balance pb-12">
+                <h2 class="text-base font-bold text-yellow-300">
+                    #1 Matrimony
+                </h2>
+                <h1 class="font-bold text-3xl py-5 md:text-4xl lg:text-5xl font-heading text-bg">
+                    Why Choose Us
+                </h1>
+                <h2 class="text-base text-white">
+                    Most Trusted and premium Matrimony Service in the World.
+                </h2>
+            </div>
+            <div class="grid items-center justify-center grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="w-full shadow-md hover:shadow-2xl bg-white rounded-lg px-7 py-7 flex flex-col justify-center items-center">
+                    <div class="mb-8">
+                        <img class="object-center object-cover rounded-full h-12 w-12" src="./images/EXPLORE4.jpg" alt="Genuine Profiles Icon">
+                    </div>
+                    <div class="text-center text-yellow-900">
+                        <p class="text-lg font-bold mb-2">Genuine profiles</p>
+                        <p class="text-sm font-normal">Contact genuine profiles with 100% verified mobile</p>
+                    </div>
+                </div>
+                <div class="w-full shadow-md hover:shadow-2xl bg-white rounded-lg px-7 py-7 flex flex-col justify-center items-center">
+                    <div class="mb-8">
+                        <img class="object-center object-cover rounded-full h-12 w-12" src="./images/EXPLORE1.jpg" alt="Trust Icon">
+                    </div>
+                    <div class="text-center text-yellow-900">
+                        <p class="text-lg font-bold mb-2">Most Trusted</p>
+                        <p class="text-sm font-normal">The most trusted wedding matrimony brand lorem</p>
+                    </div>
+                </div>
+                <div class="w-full shadow-md hover:shadow-2xl bg-white rounded-lg px-7 py-7 flex flex-col justify-center items-center">
+                    <div class="mb-8">
+                        <img class="object-center object-cover rounded-full h-12 w-12" src="./images/EXPLORE3.jpg" alt="Wedding Icon">
+                    </div>
+                    <div class="text-center text-yellow-900">
+                        <p class="text-lg font-bold mb-2">2000+ weddings</p>
+                        <p class="text-sm font-normal">Lakhs of peoples have found their life partner lorem</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script3.js"></script>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Matrimony</title>
+    <link rel="stylesheet" href="style4.css">
+
+</head>
+<body>
+<div class="container">
+  <section>
+    <div class="grid-container">
+      <!-- Left Image -->
+      <div class="image-container">
+        <img src="./images/Welcometo/wel.png" alt="Wedding Matrimony Welcome Image">
+      </div>
+
+      <!-- Right Content -->
+      <div class="content">
+        <h1>
+          WELCOME TO <span>WEDDING MATRIMONY</span>
+        </h1>
+        <p>
+          Best wedding matrimony. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+          <span style="display: block; padding: 28px 0;">
+            <a href="#">Click here</a> to start your matrimony service now.
+          </span>
+        </p>
+        <hr>
+        <p style="padding: 28px 0;">
+          There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form...
+        </p>
+
+        <div class="stats-container">
+          <div class="stat">
+            <div class="stat-value">2K</div>
+            <span class="stat-name">Couples Paired</span>
+          </div>
+          <div class="stat">
+            <div class="stat-value">1600+</div>
+            <span class="stat-name">Mens</span>
+          </div>
+          <div class="stat">
+            <div class="stat-value">2000+</div>
+            <span class="stat-name">Womens</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works</title>
+    <link rel="stylesheet" href="style5.css">
+ 
+</head>
+<body>
+    <div class="container">
+        <h1>How It Works</h1>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="content">
+                    <h3>Register</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="content">
+                    <h3>Find your Match</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, facilis.</p>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="content">
+                    <h3>Send Interest</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, quaerat?</p>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="content">
+                    <h3>Get Profile Information</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, quaerat?</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="content">
+                    <h3>Start Meetups</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, facilis.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trusted Couples Carousel</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="style6.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="section-title">Trusted Brand</h1>
+        <h1 class="main-title">Recent Couple</h1>
+        
+        <div class="carousel">
+            <div class="carousel-item">
+                <div class="card-header our-ser-bg">
+                    <div class="overlay"></div>
+                </div>
+                <div class="card-body"></div>
+            </div>
+            
+            <div class="carousel-item">
+                <div class="card-header our-ser-bg0">
+                    <div class="overlay"></div>
+                </div>
+                <div class="card-body"></div>
+            </div>
+            
+            <div class="carousel-item">
+                <div class="card-header our-ser-bg1">
+                    <div class="overlay"></div>
+                </div>
+                <div class="card-body"></div>
+            </div>
+            
+            <div class="carousel-item">
+                <div class="card-header our-ser-bg2">
+                    <div class="overlay"></div>
+                </div>
+                <div class="card-body"></div>
+            </div>
+            
+            <div class="carousel-item">
+                <div class="card-header our-ser-bg3">
+                    <div class="overlay"></div>
+                </div>
+                <div class="card-body"></div>
+            </div>
+            
+            <div class="carousel-item">
+                <div class="card-header our-ser-bg4">
+                    <div class="overlay"></div>
+                </div>
+                <div class="card-body"></div>
+            </div>
+            
+            <div class="carousel-item">
+                <div class="card-header our-ser-bg5">
+                    <div class="overlay"></div>
+                </div>
+                <div class="card-body"></div>
+            </div>
+            
+            <div class="carousel-item">
+                <div class="card-header our-ser-bg6">
+                    <div class="overlay"></div>
+                </div>
+                <div class="card-body"></div>
+            </div>
+            
+            <div class="carousel-item">
+                <div class="card-header our-ser-bg7">
+                    <div class="overlay"></div>
+                </div>
+                <div class="card-body"></div>
+            </div>
+        </div>
+    </div>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+ <script src="script6.js"></script>
+    
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Match</title>
+    <link rel="stylesheet" href="style8.css">
+    
+</head>
+<body>
+    <div class="bg-fffcf3 text-center p-5">
+        <div class="mx-auto bg-ffeebf flex flex-col gap-5 rounded-2xl flex-wrap max-w-7xl text-center justify-base gap-3 pt-20">
+            <h1 class="text-yellow-900 text-balance text-2xl font-semibold sm:text-4xl">Find your perfect Match now</h1>
+            <p class="text-md tracking-wide px-20 text-yellow-900 font-normal">
+                lacinia viverra lectus. Fusce imperdiet ullamcorper metus eu fringilla.Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br /> 
+            </p>
+            <div class="flex flex-wrap justify-center gap-5 p-5">
+                <button class="btn-primary2 px-10 py-3">
+                    Register Now
+                </button>
+                <button class="btn-primary3 px-9 py-3">
+                    Help & Support
+                </button>
+            </div>
+            <div class="flex object-cover animate-pulse h-20 bottom-bg items-end">
+                <!-- Wave background created with CSS -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script8.js"></script>
+
+    
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Footer Example</title>
+    <link rel="stylesheet" href="style9.css">
+
+</head>
+<body>
+  <button class="dark-mode-toggle" id="darkModeToggle">Toggle Dark Mode</button>
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="grid">
+        <div>
+          <h1 class="text-sm tracking-tight text-gray-800 xl-text-xl">
+            Trusted by over thousands of Boys & Girls for successful marriage.
+          </h1>
+          <div class="flex flex-col mt-6 space-y-3 md:flex-row md:space-y-0">
+            <input
+              id="email"
+              type="text"
+              placeholder="Email Address"
+            />
+            <button class="button">
+              Join Us Today
+            </button>
+          </div>
+        </div>
+        
+        <div>
+          <p class="font-semibold text-gray-800">
+            HELP & SUPPORT
+          </p>
+          <div class="flex flex-col items-start mt-5 space-y-2">
+            <a href="./about.html">About Us</a>
+            <a href="#">Feedbacks</a>
+            <a href="#">Testimonials</a>
+            <a href="/contact.html">Contact Us</a>
+            <a href="/faq">FAQs</a>
+          </div>
+        </div>
+        
+        <div>
+          <p class="font-semibold text-gray-800">
+            GET IN TOUCH
+          </p>
+          <div class="flex flex-col items-start mt-5 space-y-2">
+            <p>Address: 3812 whymatrimony Egmore</p>
+            <p>Phone: +11 (12345) 55 - 5555</p>
+            <p>Email: whymatrimony@gamil.com</p>
+          </div>
+        </div>
+      </div>
+      
+      <hr />
+      
+      <div class="flex">
+        <a href="#">
+          <img
+            class="w-auto h-10"
+            src="./images/logo-a.png"
+            alt="Logo"
+          />
+        </a>
+       </div>
+    <div class="copyright">
+      <p>© 2024 whymatrimony. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="script9.js"></script>
+
+
+</body>
+</html>

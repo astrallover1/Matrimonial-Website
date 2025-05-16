@@ -1,0 +1,126 @@
+   
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f3e6; /* Light beige background */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 48px 16px;
+        }
+
+        .timeline {
+            position: relative;
+            margin: 0 auto;
+        }
+
+        /* Center line */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: #8b4513; /* Dark brown line */
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        /* Timeline items */
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            margin-bottom: 20px;
+        }
+
+        /* Circles on timeline */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: #8b4513;
+            border: 3px solid white;
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Left side content */
+        .left {
+            left: 0;
+        }
+
+        .left::after {
+            right: -8px;
+        }
+
+        /* Right side content */
+        .right {
+            left: 50%;
+        }
+
+        .right::after {
+            left: -8px;
+        }
+
+        /* Content boxes */
+        .content {
+            padding: 16px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .content h3 {
+            font-size: 1.2rem;
+            color: #8b4513;
+            margin-bottom: 8px;
+        }
+
+        .content p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        /* Responsive design for smaller screens */
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 23px;
+            }
+
+            .left::after, .right::after {
+                left: 23px;
+            }
+
+            .right {
+                left: 0;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            color: #8b4513;
+            margin-bottom: 30px;
+        }
+    

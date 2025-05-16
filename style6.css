@@ -1,0 +1,166 @@
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fcfcfc;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .section-title {
+            color: #c48c46;
+            font-size: 1.25rem;
+            font-weight: 600;
+            padding-bottom: 20px;
+            letter-spacing: 0.025em;
+        }
+        
+        @media (min-width: 640px) {
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+        
+        .main-title {
+            color: #66451c;
+            font-size: 2.25rem;
+            font-weight: 600;
+            padding-bottom: 20px;
+            letter-spacing: 0.025em;
+        }
+        
+        @media (min-width: 640px) {
+            .main-title {
+                font-size: 3rem;
+            }
+        }
+        
+        .carousel {
+            margin: 20px auto;
+            padding: 20px 0;
+        }
+        
+        .carousel-item {
+            position: relative;
+            height: 65vh;
+            max-width: 30rem;
+            margin: 0 auto;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-item:hover {
+            transform: scale(0.9);
+        }
+        
+        .card-header {
+            position: absolute;
+            inset: 0;
+            height: 100%;
+            width: 100%;
+            border-radius: 0;
+        }
+        
+        .card-body {
+            position: relative;
+            padding: 3.5rem 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .card-body {
+                padding: 3.5rem 3rem;
+            }
+        }
+        
+        .overlay {
+            position: absolute;
+            inset: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Background images */
+        .our-ser-bg {
+            background-image: url('./images/ourservices/bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .our-ser-bg0 {
+            background-image: url('./images/ourservices/bg0.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .our-ser-bg1 {
+            background-image: url('./images/ourservices/bg1.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .our-ser-bg2 {
+            background-image: url('./images/ourservices/bg2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .our-ser-bg3 {
+            background-image: url('./images/ourservices/bg3.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .our-ser-bg4 {
+            background-image: url('./images/ourservices/pg4.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .our-ser-bg5 {
+            background-image: url('./images/ourservices/pg5.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .our-ser-bg6 {
+            background-image: url('./images/ourservices/pg6.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .our-ser-bg7 {
+            background-image: url('./images/ourservices/pg7.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Slick carousel customization */
+        .slick-prev, .slick-next {
+            z-index: 1;
+        }
+        
+        .slick-prev {
+            left: 15px;
+        }
+        
+        .slick-next {
+            right: 15px;
+        }
+        
+        .slick-prev:before, .slick-next:before {
+            color: #c48c46;
+            font-size: 24px;
+        }
+    
